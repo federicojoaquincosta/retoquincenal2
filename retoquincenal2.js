@@ -1,9 +1,9 @@
-const OpcionesTotales = 20;
+const OPC_TOTALES = 20;
 let numeroASaltear = 0;
 
-for (let i = 1; i <= OpcionesTotales; i++) {
-        document.querySelector("#checkboxes").innerHTML +=
-                `
+for (let i = 1; i <= OPC_TOTALES; i++) {
+    document.querySelector("#checkboxes").innerHTML +=
+        `
         <label for="${i}"><input type="checkbox" name="" id="${i}">${i}</label>
         <br>
         `
@@ -14,13 +14,41 @@ for (let i = 1; i <= OpcionesTotales; i++) {
 
 
 function saltear() {
+    numeroASaltear = Number(document.querySelector("#numeroASaltear").value)
 
-        numeroASaltear = document.querySelector("#numeroASaltar")
+    document.querySelector("#checkboxes").innerHTML = ``;
 
-        for (let i = 0; i <= OpcionesTotales; i++) {
+    for (let i = numeroASaltear; i <= OPC_TOTALES; i += numeroASaltear) {
 
-                if ((i % numeroASaltear) == 0) {
-                        
-                }
-        }
+        console.log("valor de i:", { i });
+        document.querySelector(`#checkboxes`).innerHTML +=
+            `
+        <label for="${i}"><input checked=checked type="checkbox" name="" id="${i}">${i}</label>
+        <br>
+        `
+        
+
+    }
 }
+
+
+
+
+
+
+/*for (let i = numeroASaltear; i <= OpcionesTotales; i++) {
+    if (i == numeroASaltear) {
+        document.querySelector("#checkboxes").innerHTML +=
+        `
+        <label for="${i}"><input checked=checked type="checkbox" name="" id="${i}">${i}</label>
+        <br>
+        `
+        
+    } else if (i != numeroASaltear) {
+    document.querySelector("#checkboxes").innerHTML +=
+        `
+        <label for="${i}"><input type="checkbox" name="" id="${i}">${i}</label>
+        <br>
+        `
+    }
+}*/
